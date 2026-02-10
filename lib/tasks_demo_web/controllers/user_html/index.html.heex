@@ -1,0 +1,29 @@
+<div class="mx-auto max-w-4xl">
+  <h1 class="text-3xl font-bold mb-4">Users from Rails API</h1>
+  <p class="text-gray-600 mb-8">All users fetched from Rails backend</p>
+
+  <table class="w-full border">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="border p-2 text-left">ID</th>
+        <th class="border p-2 text-left">Username</th>
+        <th class="border p-2 text-left">Email</th>
+        <th class="border p-2 text-left">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for user <- @users do %>
+        <tr class="hover:bg-gray-50">
+          <td class="border p-2"><%= user["id"] %></td>
+          <td class="border p-2"><strong><%= user["username"] %></strong></td>
+          <td class="border p-2"><%= user["email"] %></td>
+          <td class="border p-2">
+            <a href={~p"/users/#{user["id"]}"} class="text-blue-600 hover:underline">
+              View Details
+            </a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -18,6 +18,7 @@ defmodule TasksDemoWeb.Router do
     pipe_through :browser
 
     get "/home/:name", PageController, :home
+    get "/users", UserController, :index
   end
 
   # Other scopes may use custom stacks.
