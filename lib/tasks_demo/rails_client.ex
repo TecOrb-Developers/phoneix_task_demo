@@ -15,7 +15,7 @@ defmodule TasksDemo.RailsClient do
   end
 
   def get_user(id) do
-    url = "#{@rails_api_url}/user/#{id}"
+    url = "#{@rails_api_url}/users/#{id}"
 
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
@@ -34,7 +34,7 @@ defmodule TasksDemo.RailsClient do
     body = Jason.encode!(%{user: %{username: username, email: email}})
     headers = [{"Content-Type", "application/json"}]
 
-    case HTTPoison.get(url) do
+    case HTTPoison.post(url, body, headers) do
       {:ok, %HTTPoison.Response{status_code: 201, body: body}} ->
        {:ok, Jason.decode!(body)}
 

@@ -19,6 +19,9 @@ defmodule TasksDemoWeb.Router do
 
     get "/home/:name", PageController, :home
     get "/users", UserController, :index
+    get "/users/new", UserController, :new     
+    post "/users", UserController, :create
+    get "/users/:id", UserController, :show
   end
 
   # Other scopes may use custom stacks.

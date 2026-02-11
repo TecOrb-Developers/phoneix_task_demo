@@ -1,0 +1,58 @@
+<div class="mx-auto max-w-2xl mt-4">
+  <h1 class="text-3xl font-bold mb-2">Create New User</h1>
+  <p class="text-gray-600 mb-8">Add a new user to the Rails database</p>
+
+  <div class="bg-white p-6 rounded-lg border shadow-sm">
+    <.form for={%{}} action={~p"/users"} method="post">
+      
+      <!-- Username Field -->
+      <div class="mb-4">
+        <label for="user_username" class="block text-sm font-medium text-gray-700 mb-2">
+          Username *
+        </label>
+        <input
+          type="text"
+          name="user[username]"
+          id="user_username"
+          value={assigns[:username] || ""}
+          required
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Enter username"
+        />
+      </div>
+
+      <!-- Email Field -->
+      <div class="mb-6">
+        <label for="user_email" class="block text-sm font-medium text-gray-700 mb-2">
+          Email *
+        </label>
+        <input
+          type="email"
+          name="user[email]"
+          id="user_email"
+          value={assigns[:email] || ""}
+          required
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="user@example.com"
+        />
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex gap-3">
+        <button
+          type="submit"
+          class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Create User
+        </button>
+        
+        <.link
+          href={~p"/users"}
+          class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+        >
+          Cancel
+        </.link>
+      </div>
+    </.form>
+  </div>
+</div>

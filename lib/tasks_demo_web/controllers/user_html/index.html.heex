@@ -1,8 +1,20 @@
 <div class="mx-auto max-w-4xl">
-  <h1 class="text-3xl font-bold mb-4">Users from Rails API</h1>
-  <p class="text-gray-600 mb-8">All users fetched from Rails backend</p>
+  <div class="flex justify-between items-center mb-4 mt-4">
+    <div>
+      <h1 class="text-3xl font-bold">Users from Rails API</h1>
+      <p class="text-gray-600">All users fetched from Rails backend</p>
+    </div>
+    
+    <!-- YEH BUTTON ADD KAREIN 👇 -->
+    <.link
+      href={~p"/users/new"}
+      class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 font-medium"
+    >
+      + Create New User
+    </.link>
+  </div>
 
-  <table class="w-full border">
+  <table class="w-full border mt-4">
     <thead class="bg-gray-100">
       <tr>
         <th class="border p-2 text-left">ID</th>
@@ -26,4 +38,4 @@
       <% end %>
     </tbody>
   </table>
-</div>
+</div>  
