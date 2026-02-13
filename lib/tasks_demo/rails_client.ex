@@ -42,4 +42,29 @@ defmodule TasksDemo.RailsClient do
         {:error, reason}
     end
   end
+
+  def update_user(id,username,email) do
+    url = "#{@rails_api_url}/users/#{id}"
+    body = Jason.encode!(%{user: %{username: username, email: email}})
+    headers = [{"Content-Type", "application/json"}]
+
+    case HTTPoison.patch(url, body, headers) do
+      {:ok, %HTTPoison.Response{status_code: 201, body: body}} ->
+       {:ok, Jason.decode!(body)}
+
+       {:error, reason} ->
+        {:error, reason}
+    end
+  end
+
+  def delete_user(id) do
+    url = "#{@rails_api_url}/users/#{id}"
+    
+    case HTTPoison.delete(url) do
+      {:ok, %HTTPoison.Response{status_code: 204}} ->
+        {:ok, "User deleted"}
+      {:error, reason} ->
+        {:error, reason}
+    end
+  end
 end
